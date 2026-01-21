@@ -1,18 +1,24 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { validateEnv } from './config/env.validation';
 import { NestAgent } from './agent.service';
 import { TaskService } from './task.service';
 import { McpClientService } from './mcp-client.service';
+import { AssistantModule } from './assistant/assistant.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
-    ScheduleModule.forRoot()
+    ConfigModule.forRoot({
+      isGlobal: true,
+      validate: validateEnv,
+    }),
+    ScheduleModule.forRoot(),
+    AssistantModule,
+    HealthModule,
   ],
-  controllers: [AppController],
   providers: [
-    AppService,
     NestAgent,
     TaskService,
     McpClientService

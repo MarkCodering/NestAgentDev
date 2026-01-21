@@ -57,12 +57,13 @@ docs/              Course materials + tutorial notes
 * **Input**: `{ "prompt": "Summarize my day" }`
 * **Output**: `{ "reply": "..." }`
 
-Internally, `AppService` forwards the prompt to `NestAgent.getResult()`. The agent is created
+Internally, `AssistantService` forwards the prompt to `NestAgent.getResult()`. The agent is created
 with instructions that explain how to call MCP tools and produce a concise summary.
 
 ### Key files
-* `src/app.controller.ts` – REST endpoints.
-* `src/app.service.ts` – API logic and agent invocation.
+* `src/assistant/assistant.controller.ts` – REST endpoint for the assistant prompt.
+* `src/assistant/assistant.service.ts` – API logic and agent invocation.
+* `src/health/health.controller.ts` – health check endpoint.
 * `src/agent.service.ts` – OpenAI Agent initialization.
 * `src/mcp-client.service.ts` – MCP tool configuration.
 
