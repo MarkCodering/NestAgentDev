@@ -12,15 +12,14 @@ export class TaskService {
     // Let's pick 9:00, 13:00, and 18:00
     @Cron('0 9,13,18 * * *')
     async handleScheduledTask() {
-        this.logger.debug('Running scheduled Gmail and Calendar review');
+        this.logger.debug('Running scheduled personal assistant check-in');
 
-        const prompt = `Please review my gmail and google calendar for today. 
-    Summarize any important emails and list my upcoming events. 
-    If there are any conflicts or urgent matters, please highlight them.`;
+        const prompt = `Review my inbox and calendar for today. Summarize important items, highlight
+    any conflicts, and list upcoming events with time and location.`;
 
         try {
             const result = await this.agent.getResult(prompt);
-            this.logger.log('Agent Review Result:');
+            this.logger.log('Agent Summary Result:');
             this.logger.log(result);
         } catch (error) {
             this.logger.error('Error during scheduled task:', error);

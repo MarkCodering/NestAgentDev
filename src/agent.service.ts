@@ -18,9 +18,9 @@ export class NestAgent implements OnModuleInit {
             const tools = await this.mcpClient.getTools();
 
             this.agent = new Agent({
-                name: 'Gmail and Calendar Review Agent',
+                name: 'Personal Assistant Demo Agent',
                 instructions:
-                    'You are a helpful assistant that reviews emails and calendar events. Use the provided tools to fetch information from Gmail and Google Calendar. Provide a concise summary of important items. If you see upcoming meetings, list them. If you see urgent emails, highlight them.',
+                    'You are a helpful personal assistant. Use the provided MCP tools to fetch calendar and email context. Provide concise summaries, highlight urgent items, and suggest next actions. If data is unavailable, explain what is missing and ask a clarifying question.',
                 tools: tools
             });
             console.log("Agent initialized with MCP tools");
