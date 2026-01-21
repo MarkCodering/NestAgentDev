@@ -82,6 +82,7 @@ npx -y @modelcontextprotocol/server-google-calendar
 
 - **Tutorial:** `docs/AGENT_TUTORIAL.md`
 - **Course outline:** `docs/COURSE_OUTLINE.md`
+- **Vercel deployment:** `docs/VERCEL_DEPLOYMENT.md`
 
 ## Suggested demo prompts
 
